@@ -6,7 +6,7 @@ use App\Models\Administrativas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\AdiministrativoCrearRequest;
+use App\Http\Requests\EmpleadoCrearRequest;
 
 class AdministrativasController extends Controller
 {
@@ -32,6 +32,17 @@ class AdministrativasController extends Controller
         // hace referencia a $lista y lo encia a mostrarvista
         // compact -> pasarle mas de una variable a lista
         return view('mostrarvista', compact('lista'));
+    }
+
+    public function borrar($id){
+        //return $id;
+        DB::table('empleados')->where('id', '=', $id)->delete();
+        // envio a la ruta mostrar
+        return redirect('mostrar');
+    }
+
+    public function crear(){
+        return view('crearalumno');
     }
 
     /**
