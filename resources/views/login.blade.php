@@ -9,7 +9,7 @@
 <form  action="{{url('recibirlogin')}}" method="post">
  {{csrf_field()}}
         <label>Email:</label>
-        <input type="email" name="correo" id="correo" required><br>
+        <input type="email" name="email" id="email" required><br>
 
         <label>Contraseña:</label>
         <input type="password" name="password" id="password" required><br>

@@ -4,17 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Administrativas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\AdiministrativoCrearRequest;
 
 class AdministrativasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function recibirlogin(Request $request){
+        $datos=$request->except('_token','enviar');
+        $users=DB::table('administrativas')->where([['email','=', $datos['email']],['password','=',$datos['password']],])->count();
+            // return $datos;
+            if ($users == 1) {
+                return redirect('mostrar');
+            } else {
+                return redirect('/');
+            }
+    }
+
+    public function login(){
+        return view('login');
+    }
+
+    public function mostrar(){
+        // coger todos los datos de tbl_alumnos
+        $lista=DB::table('empleados')->get();
+        // return $lista;
+        // hace referencia a $lista y lo encia a mostrarvista
+        // compact -> pasarle mas de una variable a lista
+        return view('mostrarvista', compact('lista'));
     }
 
     /**

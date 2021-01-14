@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mostrar</title>
+    <title>Mostrar empleados</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body><br>
@@ -15,33 +15,34 @@
         <table class="table table-light">
             <thead class="thead-dark">
                 <tr>
-                    <th>foto</th>
-                    <th>nombre</th>
-                    <th>apellido</th>
-                    <th>edad</th>
-                    <th>correo</th>
-                    <th>password</th>
-                    <th>actualizar</th>
-                    <th>borrar</th>
+                    <th>Nombre</th>
+                    <th>Primer apellido</th>
+                    <th>Segundo apellido</th>
+                    <th>Email</th>
+                    <th>Fecha de contratacion</th>
+                    <th>Sueldo</th>
+                    <th>Complementos del empleado</th>
+                    <th>Actualizar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($lista as $alumno)
+            @foreach($lista as $empleado)
                 <tr>
-                    <td style="padding: auto; text-align: center"><img src="{{asset('storage').'/'.$alumno->foto}}" width="100"></td>
-                    <td>{{$alumno->nombre}}</td>
-                    <td>{{$alumno->apellido}}</td>
-                    <td>{{$alumno->edad}}</td>
-                    <td>{{$alumno->correo}}</td>
-                    <td>{{$alumno->password}}</td>
+                    <td>{{$empleado->nombre_empleados}}</td>
+                    <td>{{$empleado->apellido1_empleados}}</td>
+                    <td>{{$empleado->apellido2_empleados}}</td>
+                    <td>{{$empleado->email_empleado}}</td>
+                    <td>{{$empleado->fecha_empleado}}</td>
+                    <td>{{$empleado->sueldo_empleado}}</td>
+                    <td>{{$empleado->complementos_empleado}}</td>
                     <td>
-                        <form method="get" action="{{url('/actualizar/'.$alumno->id)}}">
-                                
+                        <form method="get" action="{{url('/actualizar/'.$empleado->id)}}">      
                         <button type='submit' class="btn btn-primary" onclick="return confirm('¿Está seguro que quiere actualizar?');">Actualizar</button>
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="{{url('/borrar/'.$alumno->id)}}">
+                        <form method="post" action="{{url('/borrar/'.$empleado->id)}}">
                         {{csrf_field()}}
                         <!-- metodo para borrar -->
                         {{method_field('DELETE')}}
