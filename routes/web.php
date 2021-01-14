@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdministrativasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[AdministrativasController::class, 'login']);
+Route::post('recibirlogin',[AdministrativasController::class, 'recibirlogin']);
+Route::get('mostrar',[AdministrativasController::class, 'mostrar']);
+Route::delete('borrar/{id}',[AdministrativasController::class, 'borrar']);
+Route::get('crear',[AdministrativasController::class, 'crear']);
+Route::post('recibir',[AdministrativasController::class, 'recibir']);
+Route::get('actualizar/{id}',[AdministrativasController::class, 'actualizar']);
+Route::put('modificar/{id}',[AdministrativasController::class, 'modificar']);
