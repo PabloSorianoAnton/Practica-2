@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-  <h1>CREAR ALUMNO</h1>
+  <h1>CREAR EMPLEADO</h1>
   @if ($errors->any())
        <div class="alert-danger alert-dismissible" role="alert">
             <ul>
@@ -23,24 +23,28 @@
     @csrf
     <!-- {{csrf_field()}} -->
     
-        <label>Foto</label>
-        <input type="file" name="foto" id="foto">
-
         <label>Nombre</label>
         <!-- {{-- {{<input type="text" name="__token" value=csrf_token()> }} --}} -->
-        <input type="text" name="nombre" required>
+        <input type="text" name="nombre_empleados" required>
 
-        <label>Apellido</label>
-        <input type="text" name="apellido" required>
+        <label>Primer Apellido</label>
+        <input type="text" name="apellido1_empleados" required>
 
+        <label>Segundo Apellido</label>
+        <input type="text" name="apellido2_empleados" required>
+
+        <label>Fecha de contratacion</label>
+        <input type="date" name="fecha_empleado" required>
+
+        <label>Sueldo</label>
+        <input type="text" name="sueldo_empleado" required>
+
+        <label>Complementos</label>
+        <input type="text" name="complementos_empleado" required>
+        <br>
         <label>Email</label>
-        <input type="email" name="correo" required>
+        <input type="email" name="email_empleado" required>
 
-    <label>Edad</label>
-    <input type="number" name="edad" required>
-    <label>Password</label>
-    <input type="password" name="password" required>
-    <input type="password2" name="password2" required>
     <input type="submit" name="enviar" value="Enviar">
 </form>
 </div>

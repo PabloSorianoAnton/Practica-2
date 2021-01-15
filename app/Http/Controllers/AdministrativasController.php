@@ -42,7 +42,15 @@ class AdministrativasController extends Controller
     }
 
     public function crear(){
-        return view('crearalumno');
+        return view('crearempleado');
+    }
+
+    public function recibir(EmpleadoCrearRequest $request){
+        $datos=$request->except('_token', 'enviar');
+        return $datos['nombre_empleados'];
+        DB::table('empleados')->insertGetId(['nombre_empleados'=>$datos['nombre_empleados'],'apellido1_empleados'=>$datos['apellido1_empleados'],'apellido2_empleados'=>$datos['apellido2_empleados'],'fecha_empleado'=>$datos['fecha_empleado'],'sueldo_empleado'=>$datos['sueldo_empleado'],'complementos_empleado'=>$datos['complementos_empleado'],'email_empleado'=>$datos['email_empleado']]);
+        // lo redireccionamos a la funcion mostrar para coger la lista con los usuarios
+        return redirect('mostrar');
     }
 
     /**
