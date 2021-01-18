@@ -13,7 +13,7 @@ class EmpleadoCrearRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class EmpleadoCrearRequest extends FormRequest
     public function rules()
     {
         return [
-            'email_empleado' => 'required|unique:empleados,email_empleado|email_empleado',
+            'email_empleado' => 'required|unique:empleados,email_empleado|email',
         ];
     }
 }
