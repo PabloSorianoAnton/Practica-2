@@ -22,3 +22,7 @@ Route::get('/crear',[AdministrativasController::class, 'crear']);
 Route::post('/recibir',[AdministrativasController::class, 'recibir']);
 Route::get('/actualizar/{id}',[AdministrativasController::class, 'actualizar']);
 Route::put('/modificar/{id}',[AdministrativasController::class, 'modificar']);
+Route::get('/logout', function (){
+    session()->forget('data');
+    return redirect('/');
+});

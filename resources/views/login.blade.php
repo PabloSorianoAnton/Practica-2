@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/css.css">
+    <!-- <link rel="stylesheet" href="./css/css.css"> -->
 </head>
 <body>
 
-<div class="container">
-<!-- <form  action="{{url('recibirlogin')}}" method="post">
+<!-- <div class="container"> -->
+<form  action="{{url('recibirlogin')}}" method="post">
  {{csrf_field()}}
         <label>Email:</label>
         <input type="email" name="email" id="email" required><br>
@@ -17,8 +17,8 @@
         <label>Contraseña:</label>
         <input type="password" name="password" id="password" required><br>
 
-        <input type="submit" name="enviar" value="Enviar">  -->
-    <div class="row">
+        <input type="submit" name="enviar" value="Enviar"> 
+    <!-- <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <form class="box">
@@ -35,6 +35,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 </body>
 </html>

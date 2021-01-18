@@ -15,7 +15,9 @@ class AdministrativasController extends Controller
         $users=DB::table('administrativas')->where([['email','=', $datos['email']],['password','=',$datos['password']],])->count();
             // return $datos;
             if ($users == 1) {
+                $request->session()->put('data',$request->input());
                 return redirect('mostrar');
+                // return $request->session()->all();
             } else {
                 return redirect('/');
             }

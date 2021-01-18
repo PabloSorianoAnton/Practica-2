@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body><br>
+<h2> Bienvenido {{session('data')['email']}}</h2>
+<a href="logout">Logout</a>
 <form method='get' action="{{url('crear')}}">
     <button type='submit' class="btn btn-success">Crear</button>
 </form><br>
