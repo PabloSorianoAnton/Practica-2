@@ -28,6 +28,9 @@ class AdministrativasController extends Controller
     }
 
     public function mostrar(){
+        if (!session()->has('data')){
+            return redirect ('/');
+        }
         // coger todos los datos de tbl_alumnos
         $lista=DB::table('empleados')->get();
         // return $lista;
@@ -38,12 +41,19 @@ class AdministrativasController extends Controller
 
     public function borrar($id){
         //return $id;
+        if (!session()->has('data')){
+            return redirect ('/');
+        }
         DB::table('empleados')->where('id', '=', $id)->delete();
-        // envio a la ruta mostrar
         return redirect('mostrar');
+        // envio a la ruta mostrar
+        
     }
 
     public function crear(){
+        if (!session()->has('data')){
+            return redirect ('/');
+        }
         return view('crearempleado');
     }
 
