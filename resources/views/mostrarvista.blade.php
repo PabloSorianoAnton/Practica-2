@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mostrar empleados</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('css/css.css')}}"> -->
 </head>
 <body><br>
-<h2> Bienvenido {{session('data')['email']}}</h2>
-<a href="logout">Logout</a>
+<h1 style="text-align: center; margin-bottom: 3%;">Lista de los empleados actuales</h1>
+<h2 style="text-align: right; margin-right: 3%; float: right"> Bienvenido {{session('data')['email']}}</h2>
+
+<div style="float: left; margin-left:3%">
+    <a href="logout" class="btn btn-info">Cerrar sesión del administrador</a>
+</div>
 <form method='get' action="{{url('crear')}}">
-    <button type='submit' class="btn btn-success">Crear</button>
-</form><br>
+    <button type='submit' style="margin-left:3%" class="btn btn-success">Dar de alta a un nuevo empleado</button>
+</form>
+<br>
 <div class="card">
     <div class="card-body">
         <table class="table table-light">

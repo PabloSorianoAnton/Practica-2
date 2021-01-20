@@ -3,39 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <title>Actualizar Empleados</title>
+    <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('css/css.css')}}">
 </head>
 <body>
-<h1>ACTUALIZAR ALUMNO</h1>
-<!-- {{$alumno->nombre}} -->
+@if ($errors->any())
+       <div class="alert-danger alert-dismissible" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-<div> 
-    <form  action="{{url('modificar/'.$alumno->id)}}" method="post" enctype="multipart/form-data">
+<div style="width: 60%; margin-left: 20%; margin-top: 5%;"> 
+<h1 style="text-align: center;">Datos del empleado</h1>
+    <form  action="{{url('modificar/'.$empleado->id)}}" method="post" enctype="multipart/form-data">
     <!-- evitar ataques -->
     @csrf
     <!-- {{csrf_field()}} -->
     {{method_field('PUT')}}
-
-        <label>Foto</label>
-        <input type="file" name="foto" id="foto" value="{{$alumno->foto}}">
-        
+    <div style="float: left; width: 45%;">
         <label>Nombre</label>
         <!-- {{-- {{<input type="text" name="__token" value=csrf_token()> }} --}} -->
-        <input type="text" name="nombre" value="{{$alumno->nombre}}" required>
-
-        <label>Apellido</label>
-        <input type="text" name="apellido" value="{{$alumno->apellido}}" required>
-
+        <br>
+        <input style="width: 70%;" type="text" name="nombre_empleados" value="{{$empleado->nombre_empleados}}" required>
+        <br>
+        <label>Primer apellido</label>
+        <br>
+        <input style="width: 70%;" type="text" name="apellido1_empleados" value="{{$empleado->apellido1_empleados}}" required>
+        <br>
+        <label>Segundo a</label>
+        <br>
+        <input style="width: 70%;" type="text" name="apellido2_empleados" value="{{$empleado->apellido2_empleados}}" required>
+        <br>
         <label>Email</label>
-        <input type="email" name="correo" value="{{$alumno->correo}}" required>
-
-    <label>Edad</label>
-    <input type="number" name="edad" value="{{$alumno->edad}}" required>
-    <label>Password</label>
-    <input type="text" name="password" value="{{$alumno->password}}" required>
-    <input type="submit" name="enviar" value="Enviar">
-</form>
+        <br>
+        <input style="width: 70%;" type="email" name="email_empleado" value="{{$empleado->email_empleado}}" required>
+    </div>
+    <div style="float: right; width: 44%;">
+        <label>Fecha del empleado</label>
+        <br>
+        <input style="width: 70%; height:124px;" type="date" name="fecha_empleado" value="{{$empleado->fecha_empleado}}" required>
+        <br>
+        <label>Sueldo</label>
+        <br>
+        <input style="width: 70%;" type="text" name="sueldo_empleado" value="{{$empleado->sueldo_empleado}}" required>
+        <br>
+        <label>Complementos</label>
+        <br>
+        <input style="width: 70%;" type="text" name="complementos_empleado" value="{{$empleado->complementos_empleado}}" required>
+        <br>
+    </div>
+        <input type="submit" name="enviar" value="Actualizar empleado">
+    </form>
 </div>
 <script src="{{asset('js/app.js')}}"></script>    
 </body>

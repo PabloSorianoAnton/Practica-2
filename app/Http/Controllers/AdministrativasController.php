@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Administrativas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EmpleadoCrearRequest;
 
 class AdministrativasController extends Controller
@@ -55,6 +54,27 @@ class AdministrativasController extends Controller
             return redirect ('/');
         }
         return view('crearempleado');
+    }
+
+    public function actualizar($id){
+        // recuperrar alumno a partir del id
+        // el first nos quedamos con el 1r id que encuentre
+        $empleado=DB::table('empleados')->where('id', '=', $id)->first();
+        // manera de mostrar el alumno
+        // return response()->json($alumno);
+        // enviar los datos del alumno a la vista
+        return view('actualizar', compact('empleado'));
+    }
+
+    public function modificar($id){
+        // recibir los datos del usuario
+        $datos=request()->except('_token','enviar','_method');
+        // $datos=$request->except('_token','enviar','_method');
+        // return $datos;
+        // actualizar bd
+        DB::table('empleados')->where('id', '=', $id)->update($datos);
+        // redirigir a mostrar
+        return redirect('mostrar');
     }
 
     public function recibir(EmpleadoCrearRequest $request){
