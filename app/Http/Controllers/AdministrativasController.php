@@ -6,6 +6,9 @@ use App\Models\Administrativas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\EmpleadoCrearRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Email;
+
 
 class AdministrativasController extends Controller
 {
@@ -83,6 +86,31 @@ class AdministrativasController extends Controller
         DB::table('empleados')->insertGetId(['nombre_empleados'=>$datos['nombre_empleados'],'apellido1_empleados'=>$datos['apellido1_empleados'],'apellido2_empleados'=>$datos['apellido2_empleados'],'fecha_empleado'=>$datos['fecha_empleado'],'sueldo_empleado'=>$datos['sueldo_empleado'],'complementos_empleado'=>$datos['complementos_empleado'],'email_empleado'=>$datos['email_empleado']]);
         // lo redireccionamos a la funcion mostrar para coger la lista con los usuarios
         return redirect('mostrar');
+    }
+
+    public function email(){
+        if (!session()->has('data')){
+            return redirect ('/');
+        }
+        // coger todos los datos de tbl_alumnos
+        // $lista=DB::table('empleados')->get();
+        // return $lista;
+        // hace referencia a $lista y lo encia a mostrarvista
+        // compact -> pasarle mas de una variable a lista
+        return view('email');
+    }
+
+    public function send(Request $request)
+    {
+        $email=array(
+            'name' => $request->input('name'),
+            'content' => $request->input('content')
+        );
+
+        $correo=$request->input('email');
+
+        Mail::to($correo)->send(new Email($email));
+        return redirect()->back();
     }
 
     /**

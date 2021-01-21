@@ -26,3 +26,5 @@ Route::get('/logout', function (){
     session()->forget('data');
     return redirect('/');
 });
+Route::get('/email', [AdministrativasController::class, 'email']);
+Route::post('/send', [AdministrativasController::class, 'send']);
