@@ -66,7 +66,7 @@ class AdministrativasController extends Controller
         return view('actualizar', compact('empleado'));
     }
 
-    public function modificar($id){
+    public function modificar(EmpleadoCrearRequest $request, $id){
         // recibir los datos del usuario
         $datos=request()->except('_token','enviar','_method');
         // $datos=$request->except('_token','enviar','_method');
