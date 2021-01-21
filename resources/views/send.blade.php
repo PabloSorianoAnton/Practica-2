@@ -7,6 +7,8 @@
 </head>
 <body>
 
+    <h2>{{$email['name']}}</h2>
+    <h2>{{$email['content']}}</h2>
     
 </body>
 </html>
