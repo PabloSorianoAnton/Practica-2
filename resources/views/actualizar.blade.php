@@ -41,7 +41,7 @@
         <br>
         <label>Email</label>
         <br>
-        <input style="width: 70%;" type="email" name="email_empleado" value="{{$empleado->email_empleado}}" required>
+        <input style="width: 70%;" type="email" name="email_empleado" value="{{$empleado->email_empleado}}" disabled>
     </div>
     <div style="float: right; width: 44%;">
         <label>Fecha del empleado</label>
