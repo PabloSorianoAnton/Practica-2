@@ -11,11 +11,15 @@
 <h1 style="text-align: center; margin-bottom: 3%;">Lista de los empleados actuales</h1>
 <h2 style="text-align: right; margin-right: 3%; float: right"> Bienvenido {{session('data')['email']}}</h2>
 
-<div style="float: left; margin-left:3%">
-    <a href="logout" class="btn btn-info">Cerrar sesión del administrador</a>
+<div style="margin-left:3%;">
+    <a href="logout" style="width: 20%;" class="btn btn-outline-primary">Cerrar sesión del administrador</a>
 </div>
+<br>
 <form method='get' action="{{url('crear')}}">
-    <button type='submit' style="margin-left:3%" class="btn btn-success">Dar de alta a un nuevo empleado</button>
+    <button type='submit' style="float: left; margin-left:3%; width: 20%;" class="btn btn-success">Dar de alta a un nuevo empleado</button>
+</form>
+<form method='get' action="{{url('email')}}">
+    <button type='submit' style="margin-left:3%; color: white; width: 20%;" class="btn btn-info">Enviar correo al empleado</button>
 </form>
 <br>
 <div class="card">

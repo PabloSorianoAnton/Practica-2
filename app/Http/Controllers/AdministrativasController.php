@@ -110,7 +110,7 @@ class AdministrativasController extends Controller
         $correo=$request->input('email');
 
         Mail::to($correo)->send(new Email($email));
-        return redirect()->back();
+        return redirect('mostrar');
     }
 
     /**

@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Empleado</title>
-    <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/css.css')}}">
 </head>
 <body>
+<form method='get' action="{{url('mostrar')}}">
+    <button type='submit' style="margin-left:3%; margin-top: 2%;" class="btn btn-success">Volver atrás</button>
+</form>
+<div style="float: left; margin-left:20%; margin-top: 2%; ">
+    <a href="logout"  style="color: white;" class="btn btn-info">Cerrar sesión del administrador</a>
+</div>
+<br>
+
+
     @if ($errors->any())
        <div class="alert-danger alert-dismissible" role="alert">
-            <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
@@ -18,7 +26,7 @@
         </div>
     @endif
 
-<div style="width: 60%; margin-left: 20%; margin-top: 5%; ">
+<div style="width: 60%; margin-left: 20%; margin-top: 5%; margin-bottom: 3%;">
         <h1 style="text-align: center;">Nuevo empleado</h1>
         <form  action="{{url('recibir')}}" method="post" enctype="multipart/form-data">
         <!-- evitar ataques -->
