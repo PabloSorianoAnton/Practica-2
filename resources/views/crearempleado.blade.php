@@ -11,14 +11,13 @@
 <form method='get' action="{{url('mostrar')}}">
     <button type='submit' style="margin-left:3%; margin-top: 2%;" class="btn btn-success">Volver atrás</button>
 </form>
-<div style="float: left; margin-left:20%; margin-top: 2%; ">
+<div style="float: left; margin-left:20%; margin-top: 2%;">
     <a href="logout"  style="color: white;" class="btn btn-info">Cerrar sesión del administrador</a>
 </div>
 <br>
 
-
     @if ($errors->any())
-       <div class="alert-danger alert-dismissible" role="alert">
+       <div style="float: right; width: 30%; margin-right: 30%; height: 70px;" class="alert-danger alert-dismissible" role="alert">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
